@@ -18,33 +18,37 @@ class TrafiicLight extends React.Component {
     constructor() {
         super();
         this.state = {
-            active: ''
+            encendidoRojo: 0,
+            encendidoAmarillo: 0,
+            encendidoVerde: 0
         }
     }
-    cambiarLuz = e => {
-        if (e.target.id == "redLight") {
-            this.setstate({
-                active: "danger"
-            })
-        } 
-        else if (e.target.id == "yellowLight") {
-            this.setstate({
-                active: "warning"
-            })
-        } 
-        else if (e.target.id == "greenLight") {
-            this.setstate({
-                active: "warning"
+
+    cambiarLuz = (e) => {
+        if (e.target.id=="redLight"&&this.state.encendido===0) { 
+            e.target.classList.remove("alert-danger");
+            e.target.classList.add("bg-danger") 
+            this.setState({
+                encendidoRojo:1
             })
         }
-    }
+        if (e.target.id=="redLight"&&this.state.encendido===1) { 
+            e.target.classList.add("alert-danger");
+            e.target.classList.remove("bg-danger") 
+            this.setState({
+                encendidoRojo:0
+            })
+        }
+    } 
+    
+
 
     render() {
         return (
             <div className="container justify-content-center" id= "semaforo">
-                <div id="" className={" bg-danger mb-3 redLight" + (this.state.active === "danger" ? "border border-danger" : "")} role="alert" onClick={e => this.cambiarColor(e)}>0</div>
-                <div id="" className={" bg-warning mb-3 yellowLight" + (this.state.active === "warning" ? "border border-warning" : "")} role="alert" onClick={e => this.cambiarColor(e)}>0</div>
-                <div id="" className={" bg-success mb-3 greenLight" + (this.state.active === "success" ? "border border-success" : "")} role="alert" onClick={e => this.cambiarColor(e)}>0</div>
+                <div id="redLight" className={" alert-danger redLight"}  onClick={this.cambiarLuz}></div>
+                <div id="yellowLight" className={" alert-warning yellowLight"} onClick={e => this.cambiarLuz(e)}></div>
+                <div id="greenLight" className={" alert-success greenLight"} onClick={e => this.cambiarLuz(e)}></div>
             </div>
         )
     }
