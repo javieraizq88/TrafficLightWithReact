@@ -14,6 +14,40 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 
-const Home = props => <h1>Proyecto React Vacío</h1>;
+class TrafiicLight extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            active: ''
+        }
+    }
+    cambiarLuz = e => {
+        if (e.target.id == "redLight") {
+            this.setstate({
+                active: "danger"
+            })
+        } 
+        else if (e.target.id == "yellowLight") {
+            this.setstate({
+                active: "warning"
+            })
+        } 
+        else if (e.target.id == "greenLight") {
+            this.setstate({
+                active: "warning"
+            })
+        }
+    }
 
-ReactDOM.render(<Home />, document.querySelector("#root"));
+    render() {
+        return (
+            <div className="container justify-content-center" id= "semaforo">
+                <div id="" className={" bg-danger mb-3 redLight" + (this.state.active === "danger" ? "border border-danger" : "")} role="alert" onClick={e => this.cambiarColor(e)}>0</div>
+                <div id="" className={" bg-warning mb-3 yellowLight" + (this.state.active === "warning" ? "border border-warning" : "")} role="alert" onClick={e => this.cambiarColor(e)}>0</div>
+                <div id="" className={" bg-success mb-3 greenLight" + (this.state.active === "success" ? "border border-success" : "")} role="alert" onClick={e => this.cambiarColor(e)}>0</div>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<TrafiicLight />, document.querySelector("#root"));
