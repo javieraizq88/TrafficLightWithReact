@@ -20,25 +20,54 @@ class TrafiicLight extends React.Component {
         this.state = {
             encendidoRojo: 0,
             encendidoAmarillo: 0,
-            encendidoVerde: 0
+            encendidoVerde: 0,
         }
     }
 
     cambiarLuz = (e) => {
-        if (e.target.id=="redLight"&&this.state.encendido===0) { 
+        if (e.target.id=="redLight"&&this.state.encendidoRojo===0) { 
             e.target.classList.remove("alert-danger");
             e.target.classList.add("bg-danger") 
             this.setState({
                 encendidoRojo:1
             })
-        }
-        if (e.target.id=="redLight"&&this.state.encendido===1) { 
+        } else if (e.target.id=="redLight"&&this.state.encendidoRojo===1) { 
             e.target.classList.add("alert-danger");
             e.target.classList.remove("bg-danger") 
             this.setState({
                 encendidoRojo:0
             })
+        } 
+        
+        if (e.target.id=="yellowLight"&&this.state.encendidoAmarillo===0) { 
+            e.target.classList.remove("alert-warning");
+            e.target.classList.add("bg-warning") 
+            this.setState({
+                encendidoAmarillo:1
+            })
+        } else if (e.target.id=="yellowLight"&&this.state.encendidoAmarillo===1) { 
+            e.target.classList.add("alert-warning");
+            e.target.classList.remove("bg-warning") 
+            this.setState({
+                encendidoAmarillo:0
+            })
         }
+
+        if (e.target.id=="greenLight"&&this.state.encendidoVerde===0) { 
+            e.target.classList.remove("alert-success");
+            e.target.classList.add("bg-success") 
+            this.setState({
+                encendidoVerde:1
+            })
+        } else if (e.target.id=="greenLight"&&this.state.encendidoVerde===1) { 
+            e.target.classList.add("alert-success");
+            e.target.classList.remove("bg-success") 
+            this.setState({
+                encendidoVerde:0
+            })
+        }
+
+
     } 
     
 
