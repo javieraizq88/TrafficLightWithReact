@@ -66,15 +66,11 @@ class TrafiicLight extends React.Component {
                 encendidoVerde:0
             })
         }
-
-
     } 
-    
-
 
     render() {
         return (
-            <div className="container justify-content-center" id= "semaforo">
+            <div className="container " id= "semaforo">
                 <div id="redLight" className={" alert-danger redLight"}  onClick={this.cambiarLuz}></div>
                 <div id="yellowLight" className={" alert-warning yellowLight"} onClick={e => this.cambiarLuz(e)}></div>
                 <div id="greenLight" className={" alert-success greenLight"} onClick={e => this.cambiarLuz(e)}></div>
@@ -84,3 +80,5 @@ class TrafiicLight extends React.Component {
 }
 
 ReactDOM.render(<TrafiicLight />, document.querySelector("#root"));
+
+
