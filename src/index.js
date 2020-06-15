@@ -24,6 +24,7 @@ class TrafiicLight extends React.Component {
         }
     }
 
+
     cambiarLuz = (e) => {
         if (e.target.id=="redLight"&&this.state.encendidoRojo===0&&this.state.encendidoAmarillo===0&&this.state.encendidoVerde===0) { 
             e.target.classList.remove("alert-danger");
@@ -70,14 +71,19 @@ class TrafiicLight extends React.Component {
 
     render() {
         return (
+            <div className="">
+            <h1>Traffic Light</h1>
+            <h4 >Turn on the light and turn it off, then you can turn on another light</h4>
             <div className="container justify-content-center" id= "semaforo">
                 <div id="redLight" className={" alert-danger redLight"}  onClick={this.cambiarLuz}></div>
                 <div id="yellowLight" className={" alert-warning yellowLight"} onClick={e => this.cambiarLuz(e)}></div>
                 <div id="greenLight" className={" alert-success greenLight"} onClick={e => this.cambiarLuz(e)}></div>
             </div>
+            </div>
         )
     }
 }
+
 
 ReactDOM.render(<TrafiicLight />, document.querySelector("#root"));
 
