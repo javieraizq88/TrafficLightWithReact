@@ -25,7 +25,7 @@ class TrafiicLight extends React.Component {
     }
 
     cambiarLuz = (e) => {
-        if (e.target.id=="redLight"&&this.state.encendidoRojo===0) { 
+        if (e.target.id=="redLight"&&this.state.encendidoRojo===0&&this.state.encendidoAmarillo===0&&this.state.encendidoVerde===0) { 
             e.target.classList.remove("alert-danger");
             e.target.classList.add("bg-danger") 
             this.setState({
@@ -39,7 +39,7 @@ class TrafiicLight extends React.Component {
             })
         } 
         
-        if (e.target.id=="yellowLight"&&this.state.encendidoAmarillo===0) { 
+        if (e.target.id=="yellowLight"&&this.state.encendidoRojo===0&&this.state.encendidoAmarillo===0&& this.state.encendidoVerde===0) { 
             e.target.classList.remove("alert-warning");
             e.target.classList.add("bg-warning") 
             this.setState({
@@ -53,7 +53,7 @@ class TrafiicLight extends React.Component {
             })
         }
 
-        if (e.target.id=="greenLight"&&this.state.encendidoVerde===0) { 
+        if (e.target.id=="greenLight"&&this.state.encendidoRojo===0&& this.state.encendidoAmarillo===0&&this.state.encendidoVerde===0) { 
             e.target.classList.remove("alert-success");
             e.target.classList.add("bg-success") 
             this.setState({
@@ -70,7 +70,7 @@ class TrafiicLight extends React.Component {
 
     render() {
         return (
-            <div className="container " id= "semaforo">
+            <div className="container justify-content-center" id= "semaforo">
                 <div id="redLight" className={" alert-danger redLight"}  onClick={this.cambiarLuz}></div>
                 <div id="yellowLight" className={" alert-warning yellowLight"} onClick={e => this.cambiarLuz(e)}></div>
                 <div id="greenLight" className={" alert-success greenLight"} onClick={e => this.cambiarLuz(e)}></div>
