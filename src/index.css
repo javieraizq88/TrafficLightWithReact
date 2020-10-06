@@ -1,30 +1,35 @@
 
 body{
-    background-color: rgb(189, 189, 204)!important;
+    background: url("/../public/img/bg-TL.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-blend-mode: overlay;
+
 }
 
 h1{
     margin-left: 120px !important;
     font-size: 60px !important;
-    margin-top: 15px !important;
+    margin-top: 5px !important;
+    color: rgb(255, 255, 255);
 }
 
 h4{
     margin-top: 20px !important;
-    text-align: center !important;
-    height: 60px !important;
-    width: 900px !important;
-    margin-left: 40px !important;
-
+    margin-left: 120px !important;
+    color: rgb(255, 255, 255);
 }
 
 #semaforo{
+    margin-top: 30px;
     background: black;
-    width: 260px;
+    width: 240px;
     height: 500px;
     border: 20px solid rgb(255, 255, 255);
     border-radius: 50px;
     padding: 12px;
+    zoom: 80%;
 
 }
     #semaforo .redLight,
