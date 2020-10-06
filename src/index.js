@@ -14,6 +14,7 @@ import 'jquery';
 import 'popper.js';
 import 'bootstrap';
 
+
 class TrafiicLight extends React.Component {
     constructor() {
         super();

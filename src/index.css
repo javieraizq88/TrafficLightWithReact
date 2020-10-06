@@ -1,44 +1,45 @@
 
 body{
-    background: url("/../public/img/bg-TL.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-blend-mode: overlay;
+  background: url("/img/bg-TL.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: overlay;
 
 }
 
 h1{
-    margin-left: 120px !important;
-    font-size: 60px !important;
-    margin-top: 5px !important;
-    color: rgb(255, 255, 255);
+  margin-left: 120px !important;
+  font-size: 60px !important;
+  margin-top: 5px !important;
+  color: rgb(255, 255, 255);
 }
 
 h4{
-    margin-top: 20px !important;
-    margin-left: 120px !important;
-    color: rgb(255, 255, 255);
+  margin-top: 20px !important;
+  margin-left: 120px !important;
+  color: rgb(255, 255, 255);
 }
 
 #semaforo{
-    margin-top: 30px;
-    background: black;
-    width: 240px;
-    height: 500px;
-    border: 20px solid rgb(255, 255, 255);
-    border-radius: 50px;
-    padding: 12px;
-    zoom: 80%;
+  margin-top: 30px;
+  background: black;
+  width: 240px;
+  height: 500px;
+  border: 20px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  padding: 12px;
+  zoom: 80%;
 
 }
-    #semaforo .redLight,
-    #semaforo .yellowLight,
-    #semaforo .greenLight{
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    padding: 14px;
-    margin: auto;
-    margin-top: 20px;
+
+#semaforo .redLight,
+#semaforo .yellowLight,
+#semaforo .greenLight{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  padding: 14px;
+  margin: auto;
+  margin-top: 20px;
 }

@@ -1,226 +1,68 @@
-### Step 1
-    $ npm init -y
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Step 2
-    $ npm i path react react-dom babel-loader @babel/core @babel/preset-react @babel/preset-env @babel/plugin-proposal-class-properties style-loader css-loader file-loader --save
+## Available Scripts
 
-### Step 3
-    $ npm i -D webpack webpack-cli webpack-dev-server html-webpack-plugin
+In the project directory, you can run:
 
-### Step 4
-Make the next files:
+### `npm start`
 
-    -- .babelrc
-    -- .gitignore
-    -- src/index.js
-    -- public/index.html
-    -- webpack.config.js
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Step 5 
-Add to the ***package.json*** file
-    
-    "scripts": {
-        ...
-        "start": "webpack-dev-server --mode=development",
-        "build": "webpack --mode=production",
-        ...
-    }
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-### Step 6 
-Add this code to the ***.babelrc*** file.
+### `npm test`
 
-    {
-        "presets": [
-            [ 
-                "@babel/preset-env", {
-                "modules": false,
-                "targets": {
-                "browsers": [
-                "last 2 Chrome versions",
-                "last 2 Firefox versions",
-                "last 2 Safari versions",
-                "last 2 iOS versions",
-                "last 1 Android version",
-                "last 1 ChromeAndroid version",
-                "ie 11"
-                ]
-                }
-            } ],
-            "@babel/preset-react"
-        ],
-        "plugins": [ "@babel/plugin-proposal-class-properties" ]
-    }
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Step 7
-Add this code to the ***webpack.config.js***
+### `npm run build`
 
-    const HtmlWebPackPlugin = require('html-webpack-plugin');
-    const webpack = require('webpack');
-    const path = require('path');
-    module.exports = {
-        context: __dirname,
-        entry: './src/index.js',
-        output: {
-            path: path.resolve(__dirname, 'dist'),
-            filename: 'main.js',
-            publicPath: '/',
-        },
-        devServer: {
-            historyApiFallback: true
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.(js|jsx)$/,
-                    exclude: /node_modules/,
-                    use: ['babel-loader']
-                }, // for js or jsx files
-                {
-                    test: /\.css$/,
-                    use: ['style-loader', 'css-loader'],
-                }, // for css files
-                {
-                    test: /\.(png|j?g|svg|gif)?$/,
-                    use: 'file-loader'
-                }, // for images files
-                { 
-                    test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, 
-                    use: ['file-loader'] 
-                }  // for fonts
-            ],
-        },
-        plugins: [
-            new HtmlWebPackPlugin({
-                template: path.resolve(__dirname, 'public/index.html'),
-                filename: './index.html'
-            }),
-            new webpack.HotModuleReplacementPlugin()
-        ]
-    };
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Step 8.0 (Optional)
-Install ***Jquery***, ***popper.js*** and ***font-awesome***
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-    $ npm i jquery popper.js bootstrap font-awesome --save-dev // 4.x
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-    $ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free@5.1.0-9 --save-dev // 5.x
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### Step 8.1
-Add this code to the ***webpack.config.js*** file.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-    plugins: [
-            ...
-            new webpack.ProvidePlugin({
-                '$': "jquery",
-                'jQuery': "jquery",
-                'Popper': 'popper.js'
-            }),
-            ...
-    ]
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### Step 8.2
-Add this code to de ***src/index.js*** file
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-    // Add css files
-    import 'bootstrap/dist/css/bootstrap.min.css';
-    //import 'font-awesome/css/font-awesome.min.css'; // 4.x
-    import '@fortawesome/fontawesome-free/css/all.css'; // 5.x
+## Learn More
 
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-    // Add js files
-    import 'jquery';
-    import 'popper.js';
-    import 'bootstrap';
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Step 9
-Go to ***http://gitignore.io*** and search VisualStudioCode and React and generate content then copy the text and paste at the ***.gitignore*** file in the project.
+### Code Splitting
 
-### Step 9.1
-Execute ***git*** command to make a new repository
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-    $ git init
-    $ git add -A
-    $ git commit -m "your message"
-    $ git remote add origin (your path to remote repository)
-    $ git push origin master
+### Analyzing the Bundle Size
 
-### Step 10 
-Go to the ***public/index.html*** and write the next code:
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
-    </html>
+### Making a Progressive Web App
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Step 11
-Edit ***src/index.js*** with the next code
+### Advanced Configuration
 
-    import React from 'react';
-    import ReactDOM from 'react-dom';
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-    // Add css files
-    import 'bootstrap/dist/css/bootstrap.min.css'; // CSS from Bootstrap
-    import 'font-awesome/css/font-awesome.min.css'; // CSS from FontAwesome
-    import './index.css'; // My own CSS
+### Deployment
 
-    // Add js files
-    import 'jquery';
-    import 'popper.js';
-    import 'bootstrap';
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
+### `npm run build` fails to minify
 
-    const Home = (props) => {
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 d-flex justify-content-center">
-                        <i className="fa fa-html5 fa-5x"></i>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-12 d-flex justify-content-center">
-                        <p className="text-success">Welcome to Webpack, Bootstrap and ReactJS</p>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-    ReactDOM.render(<Home />, document.querySelector("#root"));
-
-### Step 12
-Make a ***src/index.css*** file with the next code:
-
-    body {
-        background-color: #3f4455;
-    }
-
-
-### Step 13
-Execute the next code in the terminal or console
-
-    $ npm run start
-
-and open in the navigator the next page ***http://localhost:8080/***
-
-### Step 14
-To put your site in production (hosting) execute the next code:
-
-    $ npm run build
-
-and put the content of folder ***dist*** in the server.
-
-### Step 15 (Optional)
-To test the site like production do the next
-
-    $ npx serve -s dist
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
